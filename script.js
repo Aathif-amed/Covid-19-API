@@ -21,6 +21,10 @@ button.addEventListener("click", foo);
 
 div.append(input, button);
 document.body.append(h1, div);
+let div1 = document.createElement("div");
+div1.classList.add("conatiner-fulid", "d-flex", "justify-content-center", "m-5", "p-5");
+div1.innerHTML = " ";
+document.body.append(div1);
 
 async function foo() {
 
@@ -30,9 +34,8 @@ async function foo() {
         let data = await fetch(url);
         let data1 = await data.json();
         let i = data1.length - 1;
-        let div1 = document.createElement("div");
-        div1.classList.add("conatiner-fulid", "d-flex", "justify-content-center", "m-5", "p-5")
-
+       
+   
         div1.innerHTML = `<div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
                 <div class="card-header">${data1[i].Country}</div>
                 <div class="card-body">
@@ -42,7 +45,6 @@ async function foo() {
                   <p class="card-text">Active    : ${data1[i].Active}</p>
                   </div>
               </div>`
-        document.body.append(div1);
 
     } catch (error) {
         console.log(error);
